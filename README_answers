@@ -1,0 +1,49 @@
+¿Qué has empezado implementando y por qué?
+He empezado sacando a métodos funcionalidades que se veían fácilmente y que permitían una más sencilla comprensión del código.
+Mientras separaba las funcionalidades en métodos vi que se podía mejorar la forma de gestionar las respuestas
+que obteníamos del exterior (tanto la localización como la previsión) si se creaba un modelo con el que mapear ese JSON.
+En ese momento he implementado todas las clases del modelo necesarias y sus mappers correspondientes para poder seguir
+con la refactorización usando los modelos creados.
+
+¿Qué problemas te has encontrado al implementar los tests y cómo los has solventado?
+Para hacer los test he tenido que importar algunas librerías con maven como Mockito, para hacerlos de forma más sencilla.
+
+¿Qué componentes has creado y por qué?
+Como modelos para mapear el JSON de respuesta he creado tres:
+- Weather y DailyForecast: necesarios para el mapeo de la respuesta de la previsión
+- CityLocation: necesario para el mapeo de la respuesta de la localización
+Para mapear del JSON que tenemos como respuesta a los objetos de modelo he creado dos:
+- CityLocationMapper: para el mapeo correspondiente a CityLocation
+- WeatherMapper: para el mapeo correspondiente a Weather
+
+Si has utilizado dependencias externas, ¿por qué has escogido esas dependencias?
+Como dependencias externas he añadido Mockito para los test, ya que me facilitan su desarrollo, y GSON que lo he
+utilizado para mapear el JSON de cadena a objetos del modelo.
+
+¿Has utilizado streams, lambdas y optionals de Java 8? ¿Qué te parece la programación funcional?
+He utilizado todos los componentes mencionados de Java 8 ya que me aportan facilidades a la hora de implementar
+ciertas funcionalidades, como recorrer una colección con los streams y evitar posibles NullPointerException con
+la ayuda de Optionals.
+
+¿Qué piensas del rendimiento de la aplicación?
+El rendimiento de una aplicación toma vital importancia de cara al crecimiento y evolución de la misma, ya que podría
+verse afectada. Además también hay que tener en cuenta el número de usuarios concurrentes que podrían usarla y poder
+ofrecer un servicio de calidad a todos ellos, aunque el número sea elevado.
+
+¿Qué harías para mejorar el rendimiento si esta aplicación fuera a recibir al menos 100 peticiones por segundo?
+Para mejorar el rendimiento de una aplicación se podrían tener en cuenta varios temas:
+- Optimizar el código de la aplicación, asegurándose de no realizar operaciones innecesarias. Tener en cuenta el uso
+de la programación asíncrona para evitar bloqueos y reducir los tiempos de respuesta.
+- Utilizar sistemas de caché para mejorar los tiempos de respuesta
+- Optimizar consultas y operaciones a BBDD para que sean lo más eficientes posible (por ejemplo utilizándo íncides o
+temas de caché como he mencionado anteriormente)
+- Utilizar arquitecturas de microservicios que permitan tener componentes pequeños y fácilmente escalables de forma
+individual.
+- Utilización de un servidor de alto rendimiento que sea capaz de manejar el gran volumen de peticiones.
+
+¿Cuánto tiempo has invertido para implementar la solución?
+Unas 3h 30min (incluyendo las respuestas a las preguntas)
+
+¿Crees que en un escenario real valdría la pena dedicar tiempo a realizar esta refactorización?
+Por supuesto que si! Considero que la realización de un código legible y de calidad es vital para el mantenimiento y
+crecimiento de cualquier desarrollo software. Además un buen código hace que mejore notablemente el rendimiento.
